@@ -1,7 +1,7 @@
 export default function Navbar() {
   return (
     <nav>
-      <p> navbar </p>
+      <p className="font-lexend"> navbar </p>
     </nav>
   );
 }

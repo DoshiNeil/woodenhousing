@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        lexend: ["var(--font-lexend-deca)"],
+        livvic: ["var(--font-livvic)"],
+      },
     },
   },
   plugins: [],
