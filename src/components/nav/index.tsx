@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <nav className="flex flex-1 justify-between">
       <Logo />
-      <Button> Contact Us </Button>
+      <Button className="text-lg font-bold p-6 rounded-md"> Contact Us </Button>
     </nav>
   );
 }
