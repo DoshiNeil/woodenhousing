@@ -12,7 +12,7 @@ import {
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-1 justify-between">
+    <nav className="flex flex-1 justify-between pb-4">
       <Logo />
       <NavigationMenu>
         <NavigationMenuList>
