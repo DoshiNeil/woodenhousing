@@ -11,6 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        darkPurple: "#2d1f34",
       },
       fontFamily: {
         lexend: ["var(--font-lexend-deca)"],
