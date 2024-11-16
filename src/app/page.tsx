@@ -7,18 +7,21 @@ import Navbar from "@/components /nav";
 import Project from "@/components /project";
 import ProjectVideo from "@/components /projectVideo";
 import ViewIn3D from "@/components /viewIn3d";
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 gap-4">
-      <Navbar />
-      <HeroSection />
-      <FeatureHighlights />
-      <Project />
-      <ViewIn3D />
-      <ProjectVideo />
-      <HowItWorks />
-      <Cta />
-      <Footer />
+    <div className="flex justify-center flex-1">
+      <div className="flex flex-col flex-1 gap-4 max-w-[1920px]">
+        <Navbar />
+        <HeroSection />
+        <FeatureHighlights />
+        <Project />
+        <ViewIn3D />
+        <ProjectVideo />
+        <HowItWorks />
+        <Cta />
+        <Footer />
+      </div>
     </div>
   );
 }
