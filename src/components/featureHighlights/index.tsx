@@ -26,7 +26,7 @@ const features = [
 export default function FeatureHighlights() {
   return (
     <div className="flex flex-1 justify-center">
-      <div className="flex flex-1 justify-around py-8 max-w-[1820px]">
+      <div className="flex flex-1 justify-between py-8 max-w-[1340px]">
         {features.map((f, idx) => (
           <div key={idx} className="flex flex-col items-center gap-2">
             <Image src={f.image} alt={f.label} width={81} height={81} />

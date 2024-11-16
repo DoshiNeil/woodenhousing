@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <>
       <div className="flex flex-1 justify-center">
-        <nav className="flex flex-1 justify-between py-4 max-w-[1920px]">
+        <nav className="flex flex-1 justify-between py-4 max-w-[1440px]">
           <Logo />
           <NavigationMenu>
             <NavigationMenuList>
@@ -64,7 +64,7 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="flex flex-1 justify-center border border-slate-200 border-l-0 border-r-0 py-2">
-        <div className="flex flex-1 gap-8 max-w-[1920px]">
+        <div className="flex flex-1 gap-8 max-w-[1440px]">
           <Link href="/" className="font-lexend text-black-200 font-normal">
             Why wooden house?
           </Link>
