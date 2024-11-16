@@ -1,17 +1,39 @@
-import Link from "next/link";
+import Image from "next/image";
+
+const features = [
+  {
+    image: "/features/earthquakeResistant.svg",
+    label: "Earthquake Resistance",
+  },
+  {
+    image: "/features/heatAndColdResistant.svg",
+    label: "Heat & Cold Resistance",
+  },
+  {
+    image: "/features/fireResistant.svg",
+    label: "Fire Resistance",
+  },
+  {
+    image: "/features/soundResistant.svg",
+    label: "Sound Resistance",
+  },
+  {
+    image: "/features/3yearsWarranty.svg",
+    label: "3 Years Warranty",
+  },
+];
 
 export default function FeatureHighlights() {
   return (
-    <div className="flex gap-8 border border-slate-200 border-l-0 border-r-0 py-2">
-      <Link href="/" className="font-lexend text-black-200 font-normal">
-        Why wooden house?
-      </Link>
-      <Link href="/" className="font-lexend text-black-200 font-normal">
-        Benefits of wooden house
-      </Link>
-      <Link href="/" className="font-lexend text-black-200 font-normal">
-        3D design tour
-      </Link>
+    <div className="flex flex-1 justify-center">
+      <div className="flex flex-1 justify-around py-8 max-w-[1820px]">
+        {features.map((f, idx) => (
+          <div key={idx} className="flex flex-col items-center gap-2">
+            <Image src={f.image} alt={f.label} width={81} height={81} />
+            <h4 className="font-lexend font-normal leading-7 text-center">{f.label}</h4>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

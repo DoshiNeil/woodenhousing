@@ -1,3 +1,4 @@
+import FeatureHighlights from "@/components/featureHighlights";
 import HeroSection from "@/components/heroSection";
 import Navbar from "@/components/nav";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="flex flex-col">
       <Navbar />
       <HeroSection />
+      <FeatureHighlights/>
     </div>
   );
 }
