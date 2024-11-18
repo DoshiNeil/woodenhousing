@@ -19,7 +19,7 @@ export default async function Services() {
       <Project
         images={data.gallery}
       />
-      <FloorPlan/>
+      <FloorPlan floorElevation={data.projectDetails.floors[0].floorElevation} floorPlan={data.projectDetails.floors[0].floorPlan}/>
     </div>
   );
 }
