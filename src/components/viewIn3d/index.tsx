@@ -1,9 +1,11 @@
-export default function ViewIn3D({ model }: { model: string }) {
+import Model3d from "./Model3d";
+
+export default function ViewIn3D({ model, model3d }: { model: string, model3d:Array<string> }) {
   return (
-    <div className="bg-[#f6f3f6] flex flex-1 mt-32 justify-center">
-      <div className="flex flex-col flex-1 py-8 gap-2 max-w-[1340px]">
+    <div className="bg-[#f6f3f6] flex flex-1 flex-col mt-32">
+      <div className="flex flex-col flex-1 py-8 gap-2 mx-auto max-w-[1340px]">
         <h4 className="font-lexend text-3xl font-semibold">View in 3D</h4>
-        <div className="w-full h-[606px] bg-white-100 rounded-lg flex justify-center items-center mb-24">
+        <div className="w-full  min-w-[1200px] h-[606px] bg-white-100 rounded-lg flex justify-center items-center">
           <model-viewer
             alt="wooden house model"
             src={model}
@@ -16,6 +18,7 @@ export default function ViewIn3D({ model }: { model: string }) {
           ></model-viewer>
         </div>
       </div>
+      <Model3d models={model3d}/>
     </div>
   );
 }
