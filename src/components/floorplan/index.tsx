@@ -8,18 +8,50 @@ export default function FloorPlan({
   floorPlan,
 }: FloorPlanType) {
   return (
-    <div className="flex flex-1 justify-center mt-6">
-      <div className="flex flex-1 flex-col py-8 gap-6 max-w-[1340px]">
-        <Heading />
-        <div className="flex flex-1">
-          <div className="flex-[2_2_0%] justify-center">
-            <img src={floorPlan} className="max-w-[710px]"/>
-          </div>
-          <div className="flex-[1_1_0%]">
-            <FeatureList floor="1st"/>
+    <>
+      <div className="flex flex-1 justify-center mt-6">
+        <div className="flex flex-col">
+          <div className="flex flex-1 flex-col py-8 gap-6 max-w-[1340px]">
+            <Heading />
+            <div className="flex flex-1">
+              <div className="flex-[2_2_0%] justify-center">
+                <img src={floorPlan} className="max-w-[710px]" />
+              </div>
+              <div className="flex-[1_1_0%]">
+                <FeatureList floor="1st" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className="flex flex-1 justify-center items-center mt-24 relative">
+        <img src="/chexbg.svg" className="absolute shadow-md z-0" />
+        <img
+          src={floorElevation}
+          className="relative object-cover max-h-[383px] z-10"
+        />
+      </div>
+      <div className="flex flex-1 justify-center mt-24 z-10">
+        <div className="flex flex-col">
+          <div className="flex flex-1 flex-col py-8 gap-6 max-w-[1340px]">
+            <div className="flex flex-1 justify-between">
+              <div className="flex-[1_1_0%]">
+                <FeatureList floor="2nd" />
+              </div>
+              <div className="flex-[2_2_0%] justify-center">
+                <img src={floorPlan} className="max-w-[710px]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-1 justify-center items-center mt-24 relative">
+        <img src="/chexbg.svg" className="absolute shadow-md z-0" />
+        <img
+          src={floorElevation}
+          className="relative object-cover max-h-[383px] z-10"
+        />
+      </div>
+    </>
   );
 }
