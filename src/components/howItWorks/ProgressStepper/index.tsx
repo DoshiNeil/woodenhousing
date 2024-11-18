@@ -1,40 +1,90 @@
 "use client";
 import { cn } from "@/lib/utils";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 interface Step {
   id: number;
   title: string;
+  subtitle: string;
   isCompleted: boolean;
   progress: number; // 0 to 100
 }
 
 const ProgressStepper = () => {
   const [steps, setSteps] = useState<Step[]>([
-    { id: 1, title: "Raise a request", isCompleted: false, progress: 0 },
-    { id: 2, title: "Meet Our Expert", isCompleted: false, progress: 0 },
     {
-      id: 3,
-      title: "Explore Design Options",
+      id: 1,
+      title: "Raise a request",
+      subtitle:
+        "Reach out to us to express your interest in building a wooden house/cottage.",
       isCompleted: false,
       progress: 0,
     },
-    { id: 4, title: "Book with Us", isCompleted: false, progress: 0 },
-    { id: 5, title: "Receive 3D Design", isCompleted: false, progress: 0 },
+    {
+      id: 2,
+      title: "Meet Our Expert",
+      subtitle:
+        "Our architect will visit you to discuss your ideas, preferences, and budget, ensuring we capture your vision perfectly.",
+      isCompleted: false,
+      progress: 0,
+    },
+    {
+      id: 3,
+      title: "Explore Design Options",
+      subtitle:
+        "We’ll present you with various design options and reference images to help you choose the style and layout that best suits your needs.",
+      isCompleted: false,
+      progress: 0,
+    },
+    {
+      id: 4,
+      title: "Book with Us",
+      subtitle:
+        "Once you’re satisfied with the design, secure your booking to begin the next steps.",
+      isCompleted: false,
+      progress: 0,
+    },
+    {
+      id: 5,
+      title: "Receive 3D Design",
+      subtitle:
+        "Work with us to select the perfect materials, from wood types to finishes, ensuring every detail aligns with your preferences.",
+      isCompleted: false,
+      progress: 0,
+    },
     {
       id: 6,
       title: "Finalize Materials & Specifications",
+      subtitle:
+        "Work with us to select the perfect materials, from wood types to finishes, ensuring every detail aligns with your preferences.",
       isCompleted: false,
       progress: 0,
     },
     {
       id: 7,
       title: "Monitor Construction Progress",
+      subtitle:
+        "Stay informed as our team keeps you updated on the construction progress, from foundation to final touches.",
       isCompleted: false,
       progress: 0,
     },
-    { id: 8, title: "Handover to Client", isCompleted: false, progress: 0 },
+    {
+      id: 8,
+      title: "Handover to Client",
+      subtitle:
+        "Upon completion, we hand over your fully finished wooden house, ready for you to move in and enjoy.",
+      isCompleted: false,
+      progress: 0,
+    },
   ]);
+
+  const currentStep = useMemo(() => {
+    const firstIncompleteIndex = steps.findIndex((step) => !step.isCompleted);
+
+    if (firstIncompleteIndex == -1) return steps[0];
+
+    return steps[firstIncompleteIndex];
+  }, [steps]);
 
   // Demo animation - you can remove this in production or trigger based on your needs
   useEffect(() => {
@@ -111,6 +161,25 @@ const ProgressStepper = () => {
               </span>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="mt-8 flex justify-center">
+        <img
+          src={`/howItWorks/${currentStep.id}.svg`}
+          className="object-cover item-center max-h-[400px]" 
+        />
+      </div>
+      <div className="mt-2 flex justify-center">
+        <p className="font-lexend text-[200px] text-[#f2f2f2] z-0">
+          0{currentStep.id}
+        </p>
+        <div className="flex flex-col -translate-x-20 justify-center z-5">
+          <p className="font-lexend font-medium text-xl leading-8">
+            {currentStep.id}.{currentStep.title}
+          </p>
+          <p className="font-lexend font-light text-lg leading-8">
+            {currentStep.subtitle}
+          </p>
         </div>
       </div>
     </div>

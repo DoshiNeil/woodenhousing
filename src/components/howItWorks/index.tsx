@@ -10,6 +10,7 @@ export default function HowItWorks() {
       </div>
       <div className="flex mx-auto min-w-[1440px]">
         <ProgressStepper />
+
       </div>
     </div>
   );
