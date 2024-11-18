@@ -28,8 +28,8 @@ export default function FeatureList({floor}:{floor:string}) {
         Total Area: {details["1st Floor"]["Total area"]}
       </p>
       <ul className="max-h-80 overflow-y-scroll">
-        {details["1st Floor"].Rooms.map((r) => (
-          <li key={r} className="flex py-2 gap-2">
+        {details["1st Floor"].Rooms.map((r, idx) => (
+          <li key={idx} className="flex py-2 gap-2">
             <img src="/checkIcon.svg" /> <p className="font-lexend font-normal text-lg">{r}</p>
           </li>
         ))}

@@ -6,21 +6,31 @@ import { FirestoreService } from "@/firebase/firestoreService";
 import { serializeDocument } from "@/lib/utils";
 import { ServicesPageType } from "./type";
 import FloorPlan from "@/components/floorplan";
+import ViewIn3D from "@/components/viewIn3d";
+import Script from "next/script";
 
 export default async function Services() {
   const { data, error } = await getServerPageData();
   if (data === null) return <h4>{error}</h4>;
 
   return (
-    <div className="flex flex-col">
-      <Navbar />
-      <HeroSection />
-      <FeatureHighlights />
-      <Project
-        images={data.gallery}
-      />
-      <FloorPlan floorElevation={data.projectDetails.floors[0].floorElevation} floorPlan={data.projectDetails.floors[0].floorPlan}/>
-    </div>
+    <>
+      <Script
+        type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+      ></Script>
+      <div className="flex flex-col">
+        <Navbar />
+        <HeroSection />
+        <FeatureHighlights />
+        <Project images={data.gallery} />
+        <FloorPlan
+          floorElevation={data.projectDetails.floors[0].floorElevation}
+          floorPlan={data.projectDetails.floors[0].floorPlan}
+        />
+        <ViewIn3D model={data.models3d[0]}/>
+      </div>
+    </>
   );
 }
 
