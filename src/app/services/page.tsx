@@ -8,6 +8,8 @@ import { ServicesPageType } from "./type";
 import FloorPlan from "@/components/floorplan";
 import ViewIn3D from "@/components/viewIn3d";
 import Script from "next/script";
+import ProjectVideo from "@/components/projectVideo";
+import HowItWorks from "@/components/howItWorks";
 
 export default async function Services() {
   const { data, error } = await getServerPageData();
@@ -29,6 +31,8 @@ export default async function Services() {
           floorPlan={data.projectDetails.floors[0].floorPlan}
         />
         <ViewIn3D model={data.models3d[0]} model3d={data.gallery3d} />
+        <ProjectVideo video={data.video} />
+        <HowItWorks />
       </div>
     </>
   );
