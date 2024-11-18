@@ -5,6 +5,7 @@ import Project from "@/components/project";
 import { FirestoreService } from "@/firebase/firestoreService";
 import { serializeDocument } from "@/lib/utils";
 import { ServicesPageType } from "./type";
+import FloorPlan from "@/components/floorplan";
 
 export default async function Services() {
   const { data, error } = await getServerPageData();
@@ -18,6 +19,7 @@ export default async function Services() {
       <Project
         images={data.gallery}
       />
+      <FloorPlan/>
     </div>
   );
 }

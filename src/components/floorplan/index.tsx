@@ -1,20 +1,11 @@
-import FeatureList from "./FeatureList";
 import Heading from "./Heading";
 
 export default function FloorPlan() {
   return (
-    <div className="flex flex-col gap-4">
-      <Heading />
-      <div className="flex gap-4">
-        <img src="https://res.cloudinary.com/djsafovd9/image/upload/v1731644684/Ele_copy_h0jphe_c8zm4i.webp" />
-        <FeatureList/>
+    <div className="flex flex-1 justify-center mt-6">
+      <div className="flex flex-1 py-8 gap-2 max-w-[1340px]">
+        <Heading />
       </div>
-        <img src="https://res.cloudinary.com/djsafovd9/image/upload/v1731644684/Ele_copy_h0jphe_c8zm4i.webp" />
-      <div className="flex gap-4">
-        <FeatureList/>
-        <img src="https://res.cloudinary.com/djsafovd9/image/upload/v1731644684/Ele_copy_h0jphe_c8zm4i.webp" />
-      </div>
-        <img src="https://res.cloudinary.com/djsafovd9/image/upload/v1731644684/Ele_copy_h0jphe_c8zm4i.webp" />
     </div>
   );
 }
