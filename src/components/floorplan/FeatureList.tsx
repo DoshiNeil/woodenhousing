@@ -9,6 +9,13 @@ const details = {
       "Bathroom laundry room",
       "Storage room",
       "Technical room",
+      "Living room",
+      "Open kitchen",
+      "Double bedroom",
+      "Fixed wardrobes",
+      "Bathroom laundry room",
+      "Storage room",
+      "Technical room",
     ],
   },
 };
@@ -20,7 +27,7 @@ export default function FeatureList({floor}:{floor:string}) {
       <p className="font-lexend font-normal text-xl leading-7">
         Total Area: {details["1st Floor"]["Total area"]}
       </p>
-      <ul>
+      <ul className="max-h-80 overflow-y-scroll">
         {details["1st Floor"].Rooms.map((r) => (
           <li key={r} className="flex py-2 gap-2">
             <img src="/checkIcon.svg" /> <p className="font-lexend font-normal text-lg">{r}</p>
