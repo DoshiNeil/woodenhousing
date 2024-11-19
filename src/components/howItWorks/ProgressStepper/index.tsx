@@ -1,5 +1,4 @@
 "use client";
-import { cn } from "@/lib/utils";
 import React, { useState, useEffect, useMemo } from "react";
 
 interface Step {
@@ -17,7 +16,7 @@ const ProgressStepper = () => {
       title: "Raise a request",
       subtitle:
         "Reach out to us to express your interest in building a wooden house/cottage.",
-      isCompleted: false,
+      isCompleted: true,
       progress: 0,
     },
     {
@@ -116,57 +115,36 @@ const ProgressStepper = () => {
 
   return (
     <div className="mx-auto my-6">
-      <div className="relative">
-        {/* Steps Container */}
-        <div className="relative flex justify-between">
-          {steps.map((step, index) => (
-            <div key={step.id} className="flex flex-col items-center flex-1">
-              {/* Circle and Progress Line */}
-              <div className="relative flex items-center justify-center w-full">
-                {/* Progress Line */}
-                {index < steps.length - 1 && (
-                  <div className="absolute top-6 w-full left-1/2 h-1 -translate-y-1/2">
-                    <div
-                      className="h-full bg-orange-100 transition-all duration-300 ease-in-out"
-                      style={{
-                        width: `${step.progress}%`,
-                      }}
-                    />
-                  </div>
-                )}
-
-                {/* Circle */}
-                <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center z-10 transition-colors duration-300 bg-white-100
-                    ${step.isCompleted
-                      ? "border-2 border-white-100 font-lexend font-bold text-lg bg-orange-200 text-white-200"
-                      : "border-2 border-orange-100 bg-white text-orange-100"
-                    }`}
-                >
-                  {step.id}
-                </div>
-              </div>
-
-              {/* Step Title */}
-              <span
-                className={cn(
-                  "font-lexend mt-2 text-xs text-center w-40",
-                  `${step.isCompleted
-                    ? "font-semibold text-[#161616]"
-                    : "font-medium text-[#696969]"
-                  }`,
-                )}
+      <div className="flex my-2 relative w-full">
+        {steps.map((s, idx) => (
+          <div className="flex flex-col flex-1" key={idx}>
+            <div className="flex align-center">
+              <button
+                className={`min-w-[50px] min-h-[50px] rounded-full 
+                border-[1.714px] border-[#d75337] ${!s.isCompleted && "text-[#d75337]"}
+                flex items-center justify-center cursor-pointer
+                ${s.isCompleted && "text-white-100 bg-[#d75337]"} border-[#d75337] transition-all duration-200 ease-linear`}
               >
-                {step.title}
-              </span>
+                {s.id}
+              </button>
+              {s.id !== 8 && (
+                <div className="relative w-full h-full mx-5">
+                  <div className="absolute top-0 left-0 w-full h-[3px] top-1/2 -translate-y-1/2 bg-[#f3d8d2]" />
+                </div>
+              )}
             </div>
-          ))}
-        </div>
+            <p
+              className={`pt-4 pr-8 text-sm ${s.isCompleted ? "font-bold" : "font-normal text-gray-800"} leading-relaxed  transition-all duration-200 ease-linear`}
+            >
+              {s.title}
+            </p>
+          </div>
+        ))}
       </div>
       <div className="mt-8 flex justify-center">
         <img
           src={`/howItWorks/${currentStep.id}.svg`}
-          className="object-cover item-center max-h-[400px]" 
+          className="object-cover item-center max-h-[400px]"
         />
       </div>
       <div className="mt-2 flex justify-center">
