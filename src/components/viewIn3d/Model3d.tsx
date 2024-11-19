@@ -17,14 +17,14 @@ export default function Model3d({ models }: { models: Array<string> }) {
             <img
               src={m}
               alt="3d models"
-              className="h-64 min-w-96 object-cover rounded-lg"
+              className="xl:h-64 xl:min-w-96 md:min-w-[247.55px] md:h-[182.97px] min-w-32 h-16 object-cover rounded-lg"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black-100 to-transparent rounded-lg" />
-            <img src="/expandIcon.svg" className="absolute right-2 bottom-2" />
+            <img src="/expandIcon.svg" className="absolute right-2 bottom-2 w-2 h-2 lg:w-4 lg:h-4 xl:h-8 xl:w-8" />
           </div>
         ))}
       </div>
-      <div className="flex flex-1 justify-between min-w-[1200px] mx-auto py-4 my-6">
+      <div className="flex flex-1 justify-between xl:min-w-[1200px] lg:min-w-[900px] md:min-w-[400px] min-w-[300px] mx-auto py-4 my-6">
         <CircleChevronLeft className="color-purple-200 w-8 h-8" />
         <div className="w-64">
           <span className="font-lexend font-normal text-slate-500 text-lg">
@@ -48,3 +48,4 @@ export default function Model3d({ models }: { models: Array<string> }) {
     </div>
   );
 }
+
