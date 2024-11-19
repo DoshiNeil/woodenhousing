@@ -117,13 +117,13 @@ const ProgressStepper = () => {
     return () => clearInterval(intervalId);
   }, [dispatch]);
   return (
-    <div className="mx-auto my-6">
+    <div className="xl:mx-auto mx-8 my-6">
       <div className="flex my-2 relative w-full">
         {state.steps.map((s: Step, idx: number) => (
           <div className="flex flex-col flex-1" key={idx}>
             <div className="flex align-center">
               <button
-                className={`min-w-[50px] min-h-[50px] rounded-full 
+                className={`xl:min-w-[50px] xl:min-h-[50px] min-w-[23.78px] min-h-[23.78px] text-[8.87px] xl:text-[1rem] rounded-full 
                 border-[1.714px] border-[#d75337] ${!s.isCompleted && "text-[#d75337]"}
                 flex items-center justify-center cursor-pointer
                 ${s.isCompleted && "text-white-100 bg-[#d75337]"} border-[#d75337] transition-all duration-200 ease-linear`}
@@ -131,15 +131,15 @@ const ProgressStepper = () => {
                 {s.id}
               </button>
               {s.id !== 8 && (
-                <div className="relative w-full h-full mx-5">
+                <div className="relative w-full h-full xl:mx-5 mx-1">
                   <div
-                    className={`absolute top-0 left-0 w-full ${!s.isCompleted ? "h-[3px] bg-[#f3d8d2] " : "h-[5px] bg-orange-200"} top-1/2 -translate-y-1/2`}
+                    className={`absolute top-0 left-0 w-full ${!s.isCompleted ? "h-[3px] bg-[#f3d8d2] " : "xl:h-[5px] h-[3px] bg-orange-200"} top-1/2 -translate-y-1/2`}
                   />
                 </div>
               )}
             </div>
             <p
-              className={`-translate-x-10 pt-4 pr-8 text-center text-sm ${s.isCompleted ? "font-bold" : "font-normal text-gray-800"} leading-relaxed  transition-all duration-200 ease-linear`}
+              className={`hidden lg:block -translate-x-10 pt-4 pr-8 text-center text-sm ${s.isCompleted ? "font-bold" : "font-normal text-gray-800"} leading-relaxed  transition-all duration-200 ease-linear`}
             >
               {s.title}
             </p>
@@ -149,14 +149,14 @@ const ProgressStepper = () => {
       <div className="mt-8 flex justify-center">
         <img
           src={`/howItWorks/${state.activeStep + 1}.svg`}
-          className="object-cover item-center max-h-[362px] max-w-[474px]"
+          className="object-cover item-center xl:max-h-[362px] xl:max-w-[474px] max-h-[247px] max-w-[253px]"
         />
       </div>
       <div className="mt-2 flex justify-center">
-        <p className="font-lexend text-[200px] text-[#f2f2f2] z-0">
+        <p className="hidden lg:block font-lexend text-[200px] text-[#f2f2f2] z-0">
           0{state.steps[state.activeStep].id}
         </p>
-        <div className="flex flex-col -translate-x-20 justify-center z-5">
+        <div className="flex flex-col lg:-translate-x-20 justify-center z-5">
           <p className="font-lexend font-medium text-xl leading-8">
             {state.steps[state.activeStep].id}.
             {state.steps[state.activeStep].title}
