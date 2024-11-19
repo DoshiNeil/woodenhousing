@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "../common/button";
 import Logo from "../common/Logo";
 import { cn } from "@/app/utils";
 
@@ -36,9 +35,9 @@ export default function Navbar() {
               </div>
             ))}
           </div>
-          <Button className="text-lg font-bold p-6 rounded-md">
+          <button className="inline-flex p-2.5 px-[1.4375rem] justify-center items-center gap-2.5 rounded-md bg-[#D75438] hover:bg-[#B9452C] text-white-100 font-lexend text-lg tracking-normal font-medium leading-normal">
             Contact Us
-          </Button>
+          </button>
         </nav>
       </div>
       <div className="flex flex-1 justify-center border border-slate-200 border-l-0 border-r-0 py-2">
