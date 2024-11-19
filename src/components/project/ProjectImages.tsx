@@ -1,4 +1,4 @@
-'use client';
+"use client";
 type ProjectImagesProps = { images: Array<string> };
 export default function ProjectImages({ images }: ProjectImagesProps) {
   const isBelowMd = useIsBelowMd();
@@ -34,16 +34,17 @@ export default function ProjectImages({ images }: ProjectImagesProps) {
   );
 }
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useIsBelowMd = () => {
-  const [isBelowMd, setIsBelowMd] = useState(window.innerWidth < 768);
+  const [isBelowMd, setIsBelowMd] = useState(false);
 
   useEffect(() => {
+    setIsBelowMd(window.innerWidth < 768);
     const handleResize = () => setIsBelowMd(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return isBelowMd;
-}
+};
