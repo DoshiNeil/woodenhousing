@@ -13,7 +13,7 @@ export default function LineItem({
   classnames,
 }: LineItemType) {
   return (
-    <div className={cn(classnames, "flex items-center py-1 px-4 gap-2")}>
+    <div className={cn(classnames, "flex items-center py-1.5 px-4 gap-2")}>
       <img src={`/projectDetails/${icon}.svg`} />
       <div className="flex flex-1 justify-between">
         <p className="font-lexend leading-8">{label}</p>

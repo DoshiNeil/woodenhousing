@@ -8,8 +8,8 @@ export default function Project({ images }: ProjectProps) {
 
   return (
     <div className="flex flex-1 justify-center">
-      <div className="flex flex-1 py-8 gap-2 max-w-[1340px]">
-        <div className="flex-[2_2_0%]">
+      <div className="flex flex-1 py-8  max-w-[1340px] gap-x-[48px]">
+        <div className="flex-[2_2_0%] max-w-[47.625rem]">
           <h4 className="font-lexend font-medium text-2xl leading-7">
             Project Images
           </h4>
