@@ -15,16 +15,17 @@ export default function Navbar() {
   return (
     <>
       <div className="flex flex-1 justify-center">
-        <nav className="flex flex-1 justify-between py-4 max-w-[1440px]">
+        <nav className="flex flex-1 justify-between py-4 2xl:max-w-[1440px] xl:max-w-[1200px] mx-2">
           <Logo />
-          <div className="flex flex-1 justify-between items-center max-w-[36.5rem]">
+          <div className="
+            xl:flex hidden flex-1 justify-between items-center max-w-[36.5rem]">
             {navItems.map((nav, idx) => (
               <div
+                  key={idx}
                 className={`pb-0.5 ${nav.isCurrent && "border-b-2 border-solid border-[#d75438]"}`}
               >
                 <Link
                   href={nav.href}
-                  key={idx}
                   className={cn(
                     "text-[#1E1E21] font-lexend tracking-normal font-normal text-lg leading-normal",
                     `${nav.isCurrent && "font-medium"}`,
@@ -35,13 +36,17 @@ export default function Navbar() {
               </div>
             ))}
           </div>
-          <button className="inline-flex p-2.5 px-[1.4375rem] justify-center items-center gap-2.5 rounded-md bg-[#D75438] hover:bg-[#B9452C] text-white-100 font-lexend text-lg tracking-normal font-medium leading-normal">
+          <button className="
+            xl:block hidden
+            inline-flex p-2.5 px-[1.4375rem] justify-center items-center 
+            gap-2.5 rounded-md bg-[#D75438] hover:bg-[#B9452C] text-white-100 
+            font-lexend text-lg tracking-normal font-medium leading-normal">
             Contact Us
           </button>
         </nav>
       </div>
-      <div className="flex flex-1 justify-center border border-slate-200 border-l-0 border-r-0 py-2">
-        <div className="flex flex-1 gap-8 max-w-[1440px]">
+      <div className="hidden xl:flex flex-1 justify-center border border-slate-200 border-l-0 border-r-0 py-2">
+        <div className="flex flex-1 gap-8 2xl:max-w-[1440px] xl:max-w-[1200px]">
           <Link href="/" className="font-lexend text-black-200 font-normal">
             Why wooden house?
           </Link>

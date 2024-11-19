@@ -10,6 +10,7 @@ import ViewIn3D from "@/components/viewIn3d";
 import Script from "next/script";
 import ProjectVideo from "@/components/projectVideo";
 import HowItWorks from "@/components/howItWorks";
+import Head from "next/head";
 
 export default async function Services() {
   const { data, error } = await getServerPageData();
@@ -17,6 +18,9 @@ export default async function Services() {
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      </Head>
       <Script
         type="module"
         src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
@@ -31,8 +35,8 @@ export default async function Services() {
           floorPlan={data.projectDetails.floors[0].floorPlan}
         />
         <ViewIn3D model={data.models3d[0]} model3d={data.gallery3d} />
-        <ProjectVideo video={data.video}/>
-        <HowItWorks/>
+        <ProjectVideo video={data.video} />
+        <HowItWorks />
       </div>
     </>
   );
