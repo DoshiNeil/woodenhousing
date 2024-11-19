@@ -3,7 +3,7 @@ import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
 import { Button } from "../common/button";
 import { useState } from "react";
 export default function Model3d({ models }: { models: Array<string> }) {
-  const [selected, useSelected] = useState<number>(6);
+  const [selected ] = useState<number>(6);
   const getPageNumbers = () => {
     if (selected >= 2 && selected <= 11)
       return [selected - 2, selected - 1, selected, selected + 1, selected + 2];
