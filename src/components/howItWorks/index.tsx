@@ -8,7 +8,7 @@ export default function HowItWorks() {
         <h4 className="font-lexend text-3xl font-semibold">How it works ?</h4>
         <hr className="flex-1 bg-gradient-to-l from-transparent via-[#463B4C] to-transparent  h-[2px]" />
       </div>
-      <div className="flex xl:mx-auto xl:mx-auto 2xl:min-w-[1440px] xl:min-w-[1200px] lg:mx-2 mx-8">
+      <div className="flex xl:mx-auto xl:mx-auto 2xl:min-w-[1440px] xl:min-w-[1200px] lg:mx-2 mx-8 translate-x-12">
         <ProgressStepper />
       </div>
     </div>

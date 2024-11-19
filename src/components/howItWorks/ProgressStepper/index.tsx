@@ -149,7 +149,7 @@ const ProgressStepper = () => {
       <div className="mt-8 flex justify-center">
         <img
           src={`/howItWorks/${state.activeStep + 1}.svg`}
-          className="object-cover item-center max-h-[400px]"
+          className="object-cover item-center max-h-[362px] max-w-[474px]"
         />
       </div>
       <div className="mt-2 flex justify-center">
