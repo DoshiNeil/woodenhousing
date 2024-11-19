@@ -31,8 +31,8 @@ export default async function Services() {
           floorPlan={data.projectDetails.floors[0].floorPlan}
         />
         <ViewIn3D model={data.models3d[0]} model3d={data.gallery3d} />
-        <ProjectVideo video={data.video} />
-        <HowItWorks />
+        <ProjectVideo video={data.video}/>
+        <HowItWorks/>
       </div>
     </>
   );
