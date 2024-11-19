@@ -16,7 +16,7 @@ export default function Project({ images }: ProjectProps) {
             <ProjectImages images={images} />
           </div>
         </div>
-        <div className="xl:flex-[1_1_0%] lg:mt-20 md:mt-24 xl:mt-0">
+        <div className="xl:flex-[1_1_0%] lg:mt-20 md:mt-32 xl:mt-0">
           <h4 className="font-lexend font-medium text-2xl leading-7">
             Project Details
           </h4>

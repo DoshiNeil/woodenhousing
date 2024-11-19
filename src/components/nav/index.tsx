@@ -1,9 +1,6 @@
-"use client";
 import Link from "next/link";
 import Logo from "../common/Logo";
 import { cn } from "@/app/utils";
-import { useState } from "react";
-import Sidebar from "./Sidebar";
 
 const navItems = [
   { name: "Home", href: "/", isCurrent: true },
@@ -15,7 +12,6 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <>
       <div className="flex flex-1 justify-center">
@@ -51,7 +47,7 @@ export default function Navbar() {
           >
             Contact Us
           </button>
-          <button className="xl:hidden" onClick={() => setIsOpen(true)}>
+          <button className="xl:hidden">
             <img src="/mobileMenu.svg" />
           </button>
         </nav>
@@ -68,26 +64,6 @@ export default function Navbar() {
             3D design tour
           </Link>
         </div>
-      </div>
-
-      {/** Sidebar show code **/}
-      {/* Overlay */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Sidebar */}
-      <div className={`
-        fixed top-0 right-0 h-full w-64 
-        bg-white shadow-lg 
-        transform transition-transform duration-300 ease-in-out
-        ${isOpen ? 'translate-x-0' : 'translate-x-full'}
-        z-50
-      `}>
-        <Sidebar/>
       </div>
     </>
   );
