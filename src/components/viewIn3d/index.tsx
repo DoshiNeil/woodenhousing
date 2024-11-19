@@ -12,7 +12,7 @@ export default function ViewIn3D({
     <div className="bg-[#f6f3f6] flex flex-1 flex-col mt-32">
       <div className="flex flex-col flex-1 py-8 gap-2 xl:mx-auto 2xl:max-w-[1440px] xl:max-w-[1200px] mx-8 ">
         <h4 className="font-lexend text-3xl font-semibold">View in 3D</h4>
-        <div className="2xl:w-[1200px] xl:max-w-[900px] 2xl:h-[606px] md:w-full lg:max-w-[1200px] md:h-[400px] w-full h-[222px] bg-white-100 rounded-lg flex justify-center items-center">
+        <div className="flex justify-center align-center 2xl:w-[1200px] xl:max-w-[900px] 2xl:h-[606px] md:w-full lg:min-w-[1000px] lg:min-h-[450px] md:h-[400px] w-full h-[222px] bg-white-100 rounded-lg">
           <ModelViewer
             alt="wooden house model"
             src={model}

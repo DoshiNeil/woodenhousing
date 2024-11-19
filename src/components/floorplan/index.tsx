@@ -21,7 +21,7 @@ export default function FloorPlan({
         </div>
       </div>
       <div className="flex flex-1 justify-center items-center xl:mt-24 mt-4 relative">
-        <img src="/chexbg.svg" className=" hidden lg:block absolute w-full" />
+        <img src="/chexBg.svg" className=" hidden lg:block absolute w-full" />
         <img
           src={floorElevation}
           className="relative object-cover xl:h-[40rem] lg:h-[30rem] h-[25rem] z-10"
@@ -38,7 +38,7 @@ export default function FloorPlan({
         </div>
       </div>
       <div className="flex flex-1 justify-center items-center xl:mt-24 mt-4 relative mb-10">
-        <img src="/chexbg.svg" className="hidden lg:block absolute w-full" />
+        <img src="/chexBg.svg" className="hidden lg:block absolute w-full" />
         <img
           src={floorElevation}
           className="relative object-cover xl:h-[40rem] lg:h-[30rem] h-[25rem] z-10"
