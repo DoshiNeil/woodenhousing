@@ -7,15 +7,15 @@ type ProjectProps = {
 export default function Project({ images }: ProjectProps) {
 
   return (
-    <div className="flex flex-1 justify-center">
-      <div className="flex flex-1 py-8  max-w-[1340px] gap-x-[48px]">
-        <div className="flex-[2_2_0%] max-w-[47.625rem]">
+    <div className="flex flex-1 justify-center mx-8">
+      <div className="flex flex-col xl:flex-row flex-1 py-8 gap-8  2xl:max-w-[1440px] xl:max-w-[1200px] mx-2 lg:mx-8 xl:gap-x-[48px]">
+        <div className="xl:flex-[2_2_0%] max-w-[47.625rem]">
           <h4 className="font-lexend font-medium text-2xl leading-7">
             Project Images
           </h4>
           <ProjectImages images={images} />
         </div>
-        <div className="flex-[1_1_0%]">
+        <div className="xl:flex-[1_1_0%] mt-20 xl:mt-0">
           <h4 className="font-lexend font-medium text-2xl leading-7">
             Project Details
           </h4>
