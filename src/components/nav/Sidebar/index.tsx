@@ -5,7 +5,9 @@ export default function Sidebar() {
         <div className="text-center text-[#3a2d41] text-base font-medium font-['Lexend Deca']">
           close
         </div>
-        <div className="w-[15px] h-[15px] relative"></div>
+        <div className="w-[15px] h-[15px] relative">
+          <img src="/sidebar/close.svg" />
+        </div>
       </div>
       <div className="self-stretch h-[757px] flex-col justify-start items-end gap-2.5 flex">
         <div className="w-[302px] h-[81px] relative">
