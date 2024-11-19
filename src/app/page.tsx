@@ -27,7 +27,7 @@ export default async function Services() {
       ></Script>
       <div className="flex flex-col">
         <Navbar />
-        <HeroSection />
+        <HeroSection  img={data.img}/>
         <FeatureHighlights />
         <Project images={data.gallery} />
         <FloorPlan
