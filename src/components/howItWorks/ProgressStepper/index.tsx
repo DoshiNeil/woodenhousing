@@ -1,16 +1,17 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useEffect, useReducer } from "react";
 
 interface Step {
   id: number;
   title: string;
   subtitle: string;
   isCompleted: boolean;
-  progress: number; // 0 to 100
+  progress: number; // 0 to 100,
 }
 
-const ProgressStepper = () => {
-  const [steps, setSteps] = useState<Step[]>([
+const initialState = {
+  activeStep: 0,
+  steps: [
     {
       id: 1,
       title: "Raise a request",
@@ -75,48 +76,50 @@ const ProgressStepper = () => {
       isCompleted: false,
       progress: 0,
     },
-  ]);
+  ],
+  completedLoops: 0,
+};
+const reducer = (state: typeof initialState, action: { type: string }) => {
+  switch (action.type) {
+    case "NEXT_STEP":
+      if ((state.activeStep + 1) % state.steps.length === 0)
+        return {
+          ...state,
+          activeStep: 0,
+          steps: state.steps.map((step, index) =>
+            index === 0
+              ? { ...step, isCompleted: true }
+              : { ...step, isCompleted: false },
+          ),
+        };
+      return {
+        ...state,
+        activeStep: (state.activeStep + 1) % state.steps.length,
+        steps: state.steps.map((step, index) =>
+          index === state.activeStep + 1
+            ? { ...step, isCompleted: true }
+            : step,
+        ),
+      };
+    default:
+      return state;
+  }
+};
 
-  const currentStep = useMemo(() => {
-    const firstIncompleteIndex = steps.findIndex((step) => !step.isCompleted);
+const ProgressStepper = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-    if (firstIncompleteIndex == -1) return steps[0];
-
-    return steps[firstIncompleteIndex];
-  }, [steps]);
-
-  // Demo animation - you can remove this in production or trigger based on your needs
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSteps((prevSteps) => {
-        const firstIncompleteIndex = prevSteps.findIndex(
-          (step) => !step.isCompleted,
-        );
-        if (firstIncompleteIndex === -1) return prevSteps;
+    const intervalId = setInterval(() => {
+      dispatch({ type: "NEXT_STEP" });
+    }, 3000); // Adjust the interval time as needed
 
-        const newSteps = [...prevSteps];
-        const currentStep = newSteps[firstIncompleteIndex];
-
-        if (currentStep.progress < 100) {
-          currentStep.progress += 2;
-        } else {
-          currentStep.isCompleted = true;
-          if (firstIncompleteIndex < newSteps.length - 1) {
-            newSteps[firstIncompleteIndex + 1].progress = 0;
-          }
-        }
-
-        return newSteps;
-      });
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, []);
-
+    return () => clearInterval(intervalId);
+  }, [dispatch]);
   return (
     <div className="mx-auto my-6">
       <div className="flex my-2 relative w-full">
-        {steps.map((s, idx) => (
+        {state.steps.map((s: Step, idx: number) => (
           <div className="flex flex-col flex-1" key={idx}>
             <div className="flex align-center">
               <button
@@ -129,12 +132,14 @@ const ProgressStepper = () => {
               </button>
               {s.id !== 8 && (
                 <div className="relative w-full h-full mx-5">
-                  <div className="absolute top-0 left-0 w-full h-[3px] top-1/2 -translate-y-1/2 bg-[#f3d8d2]" />
+                  <div
+                    className={`absolute top-0 left-0 w-full ${!s.isCompleted ? "h-[3px] bg-[#f3d8d2] " : "h-[5px] bg-orange-200"} top-1/2 -translate-y-1/2`}
+                  />
                 </div>
               )}
             </div>
             <p
-              className={`pt-4 pr-8 text-sm ${s.isCompleted ? "font-bold" : "font-normal text-gray-800"} leading-relaxed  transition-all duration-200 ease-linear`}
+              className={`-translate-x-10 pt-4 pr-8 text-center text-sm ${s.isCompleted ? "font-bold" : "font-normal text-gray-800"} leading-relaxed  transition-all duration-200 ease-linear`}
             >
               {s.title}
             </p>
@@ -143,20 +148,21 @@ const ProgressStepper = () => {
       </div>
       <div className="mt-8 flex justify-center">
         <img
-          src={`/howItWorks/${currentStep.id}.svg`}
+          src={`/howItWorks/${state.activeStep + 1}.svg`}
           className="object-cover item-center max-h-[400px]"
         />
       </div>
       <div className="mt-2 flex justify-center">
         <p className="font-lexend text-[200px] text-[#f2f2f2] z-0">
-          0{currentStep.id}
+          0{state.steps[state.activeStep].id}
         </p>
         <div className="flex flex-col -translate-x-20 justify-center z-5">
           <p className="font-lexend font-medium text-xl leading-8">
-            {currentStep.id}.{currentStep.title}
+            {state.steps[state.activeStep].id}.
+            {state.steps[state.activeStep].title}
           </p>
           <p className="font-lexend font-light text-lg leading-8">
-            {currentStep.subtitle}
+            {state.steps[state.activeStep].subtitle}
           </p>
         </div>
       </div>
