@@ -17,11 +17,13 @@ export default function Navbar() {
       <div className="flex flex-1 justify-center">
         <nav className="flex flex-1 justify-between py-4 2xl:max-w-[1440px] xl:max-w-[1200px] mx-2">
           <Logo />
-          <div className="
-            xl:flex hidden flex-1 justify-between items-center max-w-[36.5rem]">
+          <div
+            className="
+            xl:flex hidden flex-1 justify-between items-center max-w-[36.5rem]"
+          >
             {navItems.map((nav, idx) => (
               <div
-                  key={idx}
+                key={idx}
                 className={`pb-0.5 ${nav.isCurrent && "border-b-2 border-solid border-[#d75438]"}`}
               >
                 <Link
@@ -36,13 +38,18 @@ export default function Navbar() {
               </div>
             ))}
           </div>
-          <button className="
+          <button
+            className="
             xl:block hidden
             inline-flex p-2.5 px-[1.4375rem] justify-center items-center 
             gap-2.5 rounded-md bg-[#D75438] hover:bg-[#B9452C] text-white-100 
-            font-lexend text-lg tracking-normal font-medium leading-normal">
+            font-lexend text-lg tracking-normal font-medium leading-normal"
+          >
             Contact Us
           </button>
+      <button className="xl:hidden">
+        <img src="/mobileMenu.svg"/>
+      </button>
         </nav>
       </div>
       <div className="hidden xl:flex flex-1 justify-center border border-slate-200 border-l-0 border-r-0 py-2">
