@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { Button } from "../common/button";
 import Logo from "../common/Logo";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "../common/navigation-menu";
+import { cn } from "@/app/utils";
+
+const navItems = [
+  { name: "Home", href: "/", isCurrent: true },
+  { name: "Designs", href: "/designs", isCurrent: false },
+  { name: "Services", href: "/services", isCurrent: false },
+  { name: "About Us", href: "/about", isCurrent: false },
+  { name: "Blog", href: "/blog", isCurrent: false },
+  { name: "Careers", href: "/careers", isCurrent: false },
+];
 
 export default function Navbar() {
   return (
@@ -16,48 +18,24 @@ export default function Navbar() {
       <div className="flex flex-1 justify-center">
         <nav className="flex flex-1 justify-between py-4 max-w-[1440px]">
           <Logo />
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem className="font-lexend text-lg font-normal hover:font-bold leading-snug">
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Home
-                  </NavigationMenuLink>
+          <div className="flex flex-1 justify-between items-center max-w-[36.5rem]">
+            {navItems.map((nav, idx) => (
+              <div
+                className={`pb-0.5 ${nav.isCurrent && "border-b-2 border-solid border-[#d75438]"}`}
+              >
+                <Link
+                  href={nav.href}
+                  key={idx}
+                  className={cn(
+                    "text-[#1E1E21] font-lexend tracking-normal font-normal text-lg leading-normal",
+                    `${nav.isCurrent && "font-medium"}`,
+                  )}
+                >
+                  {nav.name}
                 </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="font-lexend text-lg font-normal leading-snug">
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Design
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="font-lexend text-lg font-normal leading-snug">
-                <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="font-lexend text-lg font-normal leading-snug">
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    About Us
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="font-lexend text-lg font-normal leading-snug">
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Blog
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="font-lexend text-lg font-normal leading-snug">
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Career
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+              </div>
+            ))}
+          </div>
           <Button className="text-lg font-bold p-6 rounded-md">
             Contact Us
           </Button>
